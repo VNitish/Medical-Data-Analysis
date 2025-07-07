@@ -110,4 +110,4 @@ Multiple metrics were used to assess model performance, with particular attentio
 
 
  # Conclusion
-This project demonstrates a robust approach to **predictive modeling with imbalanced clinical data**, leveraging thoughtful preprocessing, encoding strategies, and advanced hyperparameter optimization. The model effectively identifies **minority class cases**, providing a strong foundation for further refinement and deployment in **healthcare settings**.
+This project demonstrates a robust approach to **predictive modeling with imbalanced clinical data**, leveraging thoughtful preprocessing, encoding strategies, and advanced hyperparameter optimization.
