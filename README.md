@@ -45,3 +45,67 @@ An interactive Gantt chart was generated to visualize individual patient CKD sta
 **References:**
 - [KDIGO 2024 CKD Guideline (PDF)](https://kdigo.org/wp-content/uploads/2024/03/KDIGO-2024-CKD-Guideline.pdf)
 - [UK Kidney Association: CKD Staging](https://www.ukkidney.org/health-professionals/information-resources/uk-eckd-guide/ckd-staging)
+
+# Problem 2: Diabetes Readmission Prediction: Model Development and Evaluation
+
+## Overview
+This project focuses on predicting hospital readmission for diabetic patients using clinical and demographic data. The workflow includes data preprocessing, handling class imbalance, feature encoding, hyperparameter tuning, and model evaluation using XGBoost.
+
+---
+
+## Class Imbalance
+- The dataset is highly imbalanced (**approximately 10:90** ratio).
+- **Stratified sampling** is used to ensure both classes are proportionally represented in train-test splits.
+- Model metrics beyond accuracy (such as **ROC AUC**, **recall**, and **precision**) are emphasized due to the imbalance.
+
+---
+
+## Feature Encoding
+
+### One-Hot Encoding
+- Used for categorical variables **without inherent order**.
+- Ensures XGBoost treats each category independently and avoids introducing spurious ordinal relationships.
+
+### Ordinal Encoding
+- Applied to grouped diagnosis code columns (`diag_1_group`, `diag_2_group`, `diag_3_group`) to preserve any **meaningful order** among categories.
+
+---
+
+## Hyperparameter Tuning
+
+### Bayesian Optimization
+- Chosen for its **efficiency** in exploring the hyperparameter search space.
+- Focused on parameters such as:
+  - `max_depth`
+  - `learning_rate`
+  - `subsample`
+  - `colsample_bytree`
+  - `min_child_weight`
+  - `gamma`
+  - `reg_alpha`
+  - `reg_lambda`
+- `n_estimators` was managed using **early stopping**, rather than explicit tuning, to optimize training rounds dynamically.
+
+---
+
+## Model Evaluation
+Multiple metrics were used to assess model performance, with particular attention to the **minority class** (readmitted patients).
+
+### Best Model Metrics
+- **Accuracy**: `0.6684`
+- **ROC AUC**: `0.6930`
+
+#### Classification Report:
+           precision    recall  f1-score   support
+
+       0       0.93      0.68      0.78     18082
+       1       0.19      0.60      0.29      2271
+
+accuracy                           0.67     20353
+
+Confusion Matrix:
+ [[12236  5846]
+ [  903  1368]]
+
+ # Conclusion
+This project demonstrates a robust approach to **predictive modeling with imbalanced clinical data**, leveraging thoughtful preprocessing, encoding strategies, and advanced hyperparameter optimization. The model effectively identifies **minority class cases**, providing a strong foundation for further refinement and deployment in **healthcare settings**.
