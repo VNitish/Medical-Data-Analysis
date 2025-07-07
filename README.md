@@ -101,10 +101,13 @@ Multiple metrics were used to assess model performance, with particular attentio
        0       0.93      0.68      0.78     18082
        1       0.19      0.60      0.29      2271
 
-Confusion Matrix :
-|----------|------------|
-| 12236    |   5846     | 
-|   903    |   1368     | 
+### Confusion Matrix
+
+|              | Predicted: No Readmission | Predicted: Readmission |
+|--------------|---------------------------|-------------------------|
+| **Actual: No Readmission** | 12236                     | 5846                    |
+| **Actual: Readmission**    | 903                       | 1368                    |
+
 
  # Conclusion
 This project demonstrates a robust approach to **predictive modeling with imbalanced clinical data**, leveraging thoughtful preprocessing, encoding strategies, and advanced hyperparameter optimization. The model effectively identifies **minority class cases**, providing a strong foundation for further refinement and deployment in **healthcare settings**.
