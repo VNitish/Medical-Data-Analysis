@@ -101,8 +101,7 @@ Multiple metrics were used to assess model performance, with particular attentio
        0       0.93      0.68      0.78     18082
        1       0.19      0.60      0.29      2271
 
-
-|   Confusion Matrix    |
+Confusion Matrix :
 |----------|------------|
 | 12236    |   5846     | 
 |   903    |   1368     | 
